@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7e9ea;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        p {
+            color: #5e5e5e;
+            font-size: 18px;
+        }
+
+        img {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out; /* Add transition effect for opacity */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .valentine-button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .valentine-button:hover {
+            background-color: #ff3366;
+        }
+
+        /* Animation for image transition */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="firstImage" style="display: block;">
+            <h1>Happy Valentine's Day!</h1>
+            <img src="https://i.pinimg.com/originals/7e/bd/71/7ebd71142a47c65e890af6471812fa88.gif"
+                alt="Happy Valentine's Day">
+            <button class="valentine-button" onclick="toggleImage()">Send Love</button>
+        </div>
+        <div id="secondImage" style="display: none;">
+            <h1>I love you, Bebe.!</h1>
+            <p>kiss.kiss.</p>
+            <img src="https://i.pinimg.com/originals/f5/e0/a5/f5e0a5e748b2dc73bdec6ba0aca0a083.gif"
+                alt="Happy Valentine's Day" onclick="playKissSound()"
+                style="transition: opacity 0.5s ease-in-out;cursor: pointer;">
+            <br>
+            <p>Click on the image for a sweet surprise!</p>
+        </div>
+
+        <br>
+
+    </div>
+
+
+    <script>
+        function toggleImage() {
+            var firstImage = document.getElementById('firstImage');
+            var secondImage = document.getElementById('secondImage');
+
+            // Toggle the display property of the images
+            if (firstImage.style.display === 'none') {
+                firstImage.style.display = 'block';
+                secondImage.style.display = 'none';
+                firstImage.style.animation = 'fadeIn 1s forwards'; // Apply fadeIn animation
+                secondImage.style.animation = 'none'; // Remove any existing animation
+            } else {
+                firstImage.style.display = 'none';
+                secondImage.style.display = 'block';
+                secondImage.style.animation = 'fadeIn 1s forwards'; // Apply fadeIn animation
+                firstImage.style.animation = 'none'; // Remove any existing animation
+            }
+        }
+
+        function playKissSound() {
+            var audio = new Audio('./kiss.wav');
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>
